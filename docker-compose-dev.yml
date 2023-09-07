@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  axp-api-proxy:
+    image: axp-api-proxy:latest
+    ports: 
+      - "3001:3001"
+    restart: unless-stopped
