@@ -57,8 +57,9 @@ app.use((req, res, next) => {
 /*
   Authorization API
 */
+
 app.post(
-  "/auth/realms/:account_id/protocol/openid-connect/token",
+  "/api/auth/v1/:account_id/protocol/openid-connect/token",
   (req, res, next) => {
     if (req.body.client_id != process.env.AXP_CLIENT_ID)
       res.status(401).send({ error: "Bad credentials" });
@@ -72,8 +73,9 @@ app.post(
     });
     const config = {
       method: "post",
-      url: `${process.env.AXP_BASE_URL}/auth/realms/${req.params.account_id}/protocol/openid-connect/token`,
+      url: `${process.env.AXP_BASE_URL}/api/auth/v1/${req.params.account_id}/protocol/openid-connect/token`,
       data: data,
+      headers: { appkey: req.get('appkey') || process.env.AXP_APP_KEY }
     };
     return axios(config)
       .then(function (response) {
@@ -90,13 +92,13 @@ app.post(
 */
 
 app.put(
-  "/api/admin/user/v1beta/accounts/:account_id/users/:user_id",
+  "/api/admin/user/v1/accounts/:account_id/users/:user_id",
   (req, res, next) => {
     const config = {
       method: "put",
       url: `${process.env.AXP_BASE_URL}/api/admin/user/v1beta/accounts/${req.params.account_id}/users/${req.params.user_id}`,
       data: req.body,
-      headers: { Authorization: req.get("Authorization") },
+      headers: { Authorization: req.get("Authorization"), appkey: req.get('appkey') || process.env.AXP_APP_KEY },
     };
     return axios(config)
       .then(function (response) {
