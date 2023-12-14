@@ -96,7 +96,7 @@ app.put(
   (req, res, next) => {
     const config = {
       method: "put",
-      url: `${process.env.AXP_BASE_URL}/api/admin/user/v1beta/accounts/${req.params.account_id}/users/${req.params.user_id}`,
+      url: `${process.env.AXP_BASE_URL}/api/admin/user/v1/accounts/${req.params.account_id}/users/${req.params.user_id}`,
       data: req.body,
       headers: { Authorization: req.get("Authorization"), appkey: req.get('appkey') || process.env.AXP_APP_KEY },
     };
