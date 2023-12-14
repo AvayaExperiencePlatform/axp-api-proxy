@@ -12,7 +12,8 @@ To run the backend component `(axp-proxy-api)`
   - ```env
     AXP_CLIENT_ID=YOUR_AXP_CLIENT_ID
     AXP_CLIENT_SECRET=your-very-complex-axp-client-secret
-    AXP_BASE_URL=https://eu.cc.avayacloud.com
+    AXP_BASE_URL=https://eu.api.avayacloud.com # API Base URL - Format should follow region.api.avayacloud.com
+    AXP_APP_KEY=your-axp-api-key
     PORT=3001 #The port this Server will run on
     SSL_MODE=on # value should be 'on' if HTTPS enabled or 'off' if diasbled
     SSL_CERT_PATH=/etc/nginx/cert.pem
