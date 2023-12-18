@@ -2,6 +2,14 @@
 
 A backend component for Authorization with AXP, as well as proxying the Admin API requests, any APIs under the base path `/api/admin`
 
+---
+
+## :warning: **Disclaimer**
+
+> :bulb: this sample application is provided **for demonstration purposes only** and are not intended for production use. We assume no responsibility for any issues arising from its use.
+
+---
+
 ## Installation (Native)
 
 The backend component is a simple `Node.js` server using `Express`, just receiving the request from the widget and proxying it to AXP, as well as holding the client secret to not expose it in the browser.
